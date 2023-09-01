@@ -1,4 +1,10 @@
-import { months, form, containerWorkouts, inputType, inputDistance, inputDuration, inputCadence, inputElevation } from "../utils/constant.js";
+import { months, form, containerWorkouts, inputType, inputDistance, inputDuration, inputCadence, inputElevation } from "./utils/constant.js";
+
+/* ---------------------------------------------------------------------------------------------- */
+/*                                        Global variables                                        */
+/* ---------------------------------------------------------------------------------------------- */
+let map;
+let mapEvent;
 
 const sucessfulCallback = (position) => {
   const { latitude } = position.coords;
@@ -11,10 +17,10 @@ const sucessfulCallback = (position) => {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
   }).addTo(map);
 
-  map.on("click", (mapEvent) => {
-    console.log(mapEvent);
-    const { lat, lng } = mapEvent.latlng;
-    L.marker([lat, lng]).addTo(map).bindPopup(L.popup({})).openPopup();
+  map.on("click", (mapE) => {
+    mapEvent = mapE;
+    form.classList.remove("hidden");
+    inputDistance.focus();
   });
 };
 
@@ -22,6 +28,32 @@ const handleError = () => {
   console.log("error");
 };
 
+form.addEventListener("submit", (evt) => {
+  evt.preventDefault();
+  inputDuration.value = inputDistance.value = inputCadence.value = inputElevation.value = "";
+
+  const { lat, lng } = mapEvent.latlng;
+  L.marker([lat, lng])
+    .addTo(map)
+    .bindPopup(
+      L.popup({
+        maxWidth: 250,
+        minWidth: 100,
+        autoClose: false,
+        closeOnClick: false,
+        className: "running-popup",
+      })
+    )
+    .setPopupContent("Workout")
+    .openPopup();
+});
+
+inputType.addEventListener("change", () => {
+  inputElevation.closest(".form__row").classList.toggle("form__row--hidden");
+  inputCadence.closest(".form__row").classList.toggle("form__row--hidden");
+});
+
+// Checking if user allowed for geolocation
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(sucessfulCallback, handleError);
 }
