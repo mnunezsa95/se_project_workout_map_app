@@ -18,8 +18,8 @@ This application enables user interaction with an external JavaScript library, n
 
 ### Links
 
-The [live](https://workout-app-marlon-nunez.netlify.app/) project is hosted on Netlify.
-The Leaflet.js Library can be found [here](https://leafletjs.com/)
+- The [live](https://workout-app-marlon-nunez.netlify.app/) project is hosted on Netlify.
+- The Leaflet.js Library can be found [here](https://leafletjs.com/)
 
 ### Copyright
 
