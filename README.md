@@ -1,9 +1,10 @@
-# Map My Workout App (Frontend)
+# Map My Workout App (Frontend Web-App)
 
 ## Overview
 
 - Intro - About the project
 - Description of the Project
+- Technologies
 - Links
 - Copyright
 - Plans for Improvement
@@ -15,6 +16,10 @@ The Map My Workout web-application functions as an interactive map allowing the 
 ### Description of the Project
 
 This application enables user interaction with an external JavaScript library, namely Leaflet.js. Upon clicking a location within the interactive map, a new workout is added to the history on the left side. This functionality allows users to input details about the workout, and a pin is simultaneously added to the map. The entire application is constructed using HTML, CSS, and JavaScript, with a significant reliance on Leaflet.js for map-related functionalities.
+
+### Technologies
+
+- Frontend: HTML, CSS, JavaScript, Leaflet.js
 
 ### Links
 
