@@ -1,6 +1,6 @@
 # Map My Workout App (Frontend Web-App)
 
-## Overview
+### Overview
 
 - Intro - About the project
 - Description of the Project
